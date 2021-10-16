@@ -3,7 +3,9 @@ const express = require('express');
 const cors = require('cors');
 const http = require('http');
 const path = require('path');
-const addMainPageController = require('./routes/index');
+const mainPageController = require('./routes/index');
+const addLinkController = require('./routes/addLink');
+const getLinkController = require('./routes/getLink');
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -20,7 +22,10 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs');
 
-addMainPageController(app);
+// Set up controllers
+mainPageController(app);
+addLinkController(app);
+getLinkController(app);
 
 // Start the Server
 httpServer.listen(port, () => {
