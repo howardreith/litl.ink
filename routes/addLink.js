@@ -4,7 +4,7 @@ module.exports = function addLink(app) {
   app.post('/addLink', async (req, res) => {
     const { url } = req.body;
     const hash = await addLinkService(url);
-    const builtUrl = `https://litl.ink/${hash}`;
+    const builtUrl = `http://localhost:8080/${hash}`;
     res.send({
       status: 'OK',
       builtUrl,

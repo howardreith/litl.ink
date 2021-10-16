@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const http = require('http');
 const path = require('path');
@@ -16,6 +17,7 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')))
 
 // View Engine Setup

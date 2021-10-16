@@ -1,9 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Static Middleware Demo</title>
+    <title>litl.ink</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-<h1>I am here</h1>
+
+<h1>Little Link</h1>
+<form id="urlInputForm">
+    <label for="urlInput">Enter a URL to make a little link</label><br>
+    <input id="urlInput" type="text" name="urlInput"/>
+    <input id="submitButton" type="submit"/>
+</form>
+<div id="linkContainer"></div>
+
+<script>
+  $("#urlInputForm").submit(function (event) {
+    event.preventDefault();
+    const value = document.getElementById('urlInput').value
+    const url = 'http://localhost:8080/addLink'
+    const options = {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({url: value})
+    }
+    fetch(url, options).then((res) => res.json().then((res) => {
+      const link = res.builtUrl
+      document.getElementById("linkContainer").innerHTML =
+        `<div id="linkContainer"><a href="${link}" target=_blank>${link}</a></div>`;
+    }))
+  });
+</script>
+
 </body>
 </html>

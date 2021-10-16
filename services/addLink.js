@@ -5,8 +5,8 @@ module.exports = async function addLink(url) {
   const aWeek = 60 * 60 * 24 * 7;
   const currentValueInDb = await getAsync(url);
   if (currentValueInDb) {
-    await setExpireAtAsync(url, aWeek)
-    await setExpireAtAsync(currentValueInDb, aWeek)
+    await setExpireAtAsync(url, aWeek);
+    await setExpireAtAsync(currentValueInDb, aWeek);
     return currentValueInDb
   }
   const hash = hashUrl(url);
