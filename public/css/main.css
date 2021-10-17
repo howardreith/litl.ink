@@ -19,8 +19,10 @@
     margin: 0 auto;
     background-color: #f8f9fa;
     text-align: center;
-    width: 50%;
+    max-width: 50%;
+    min-width: 320px;
     min-height: 360px;
+    border-radius: 10px;
     box-shadow: 0 0 30px #000;
     -moz-box-shadow: 0 0 30px #000;
     -webkit-box-shadow: 0 0 30px #000;
@@ -88,6 +90,5 @@
     color: #fff;
     background-color: #C1CDF5;
     border-color: #C1CDF5;
-    margin-top: 15px;
-    margin-bottom: 30px;
+    margin: 15px 2% 30px;
 }
