@@ -7,10 +7,7 @@ module.exports = function getLink(app) {
     if (!url) {
       res.send({status: 'Not Found', message: `Could not find URL at value ${hash}`})
     } else {
-      res.writeHead(302, {
-        location: url,
-      });
-      res.end()
+      res.redirect(url)
     }
   });
 };
