@@ -59,8 +59,8 @@ and trivializes CORS setup.
 ### Scalability
 
 As I have deployed the app to Heroku I do not expect to be personally responsible for scaling. However, if I were,
-I have designed the app such that it would be extremely simply. It would be a matter of read replications of the
-database and replications of the service layer behind a load balancer.
+I have designed the app such that it would be extremely simple. It would be a matter of read replications of the
+database (made easier thanks to using a NoSQL DB) and replications of the controller layer behind a load balancer.
 
 ### Conclusion
 
