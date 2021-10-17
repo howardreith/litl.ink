@@ -2,17 +2,38 @@
 <html lang="en">
     <head>
         <title>litl.ink</title>
+        <link rel="stylesheet" href="css/main.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
 
-    <body>
-        <h1>Little Link</h1>
-        <form id="urlInputForm">
-            <label for="urlInput">Enter a URL to make a little link</label><br>
-            <input id="urlInput" type="text" name="urlInput"/>
-            <input id="submitButton" type="submit"/>
-        </form>
-        <div id="linkContainer"></div>
+    <body class="background">
+        <header>
+            <h1 class="header">Little Link</h1>
+        </header>
+        <div class="formWrapper">
+            <form id="urlInputForm">
+                <div class="formContentWrapper">
+                    <div class="inputWrapper">
+                        <label class="inputLabel" for="urlInput" id="urlInputLabel">Enter a long URL to make a Little Link</label><br>
+                        <input class="input" id="urlInput" type="text" name="urlInput"/>
+                    </div>
+                    <input id="submitButton" class="submitButton" type="submit" value="Make My Link"/>
+                </div>
+            </form>
+
+            <div id="errorWrapper" class="errorWrapper">
+                <span class="errorMessage">Invalid URL</span>
+            </div>
+
+            <div id="linkContainer" class="linkContainer">
+                <h2 class="littleLinkLabel">Your little link:</h2>
+                <a id="littleLink" class="littleLink"></a>
+            </div>
+
+            <div id="copyToClipboardWrapper">
+                <button id="copyToClipboardButton" class="copyToClipboardButton">Copy to Clipboard</button>
+            </div>
+        </div>
 
         <script type="text/javascript" src="js/main.js"></script>
     </body>

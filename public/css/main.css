@@ -1,0 +1,93 @@
+.background {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+.header {
+    color: white;
+    font-size: 46px;
+    font-family: Bungee,Impact,sans-serif;
+    margin-left: 20px;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.formWrapper {
+    margin: 0 auto;
+    background-color: #f8f9fa;
+    text-align: center;
+    width: 50%;
+    min-height: 360px;
+    box-shadow: 0 0 30px #000;
+    -moz-box-shadow: 0 0 30px #000;
+    -webkit-box-shadow: 0 0 30px #000;
+}
+
+.formContentWrapper {
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 10px;
+    text-align: center
+}
+
+.inputWrapper {
+    padding-top: 10px;
+}
+
+.inputLabel {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 120%;
+    font-family: Montserrat,sans-serif;
+}
+
+.input {
+    box-shadow: 0 1px 2px #e9ecef;
+    width: 98%;
+    border-radius: 10px;
+    height: 32px;
+    font-size: 30px;
+    margin-top: 10px;
+    word-wrap: break-word;
+}
+
+.submitButton {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 30px;
+    border-radius: 10px;
+    padding: 5px 30px;
+    color: #fff;
+    background-color: #28c98b;
+    border-color: #28c98b;
+    margin-top: 15px;
+}
+
+.errorWrapper {
+    padding-top: 10px;
+}
+
+.errorMessage {
+    font-family: Montserrat,sans-serif;
+    color: #c31818;
+}
+
+.littleLink {
+    font-size: 30px;
+}
+
+.copyToClipboardButton {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 30px;
+    border-radius: 10px;
+    padding: 5px 30px;
+    color: #fff;
+    background-color: #C1CDF5;
+    border-color: #C1CDF5;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
