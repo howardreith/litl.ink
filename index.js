@@ -3,14 +3,19 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const http = require('http');
+const https = require('https');
 const path = require('path');
+const fs = require('fs');
 const mainPageController = require('./routes/index');
 const addLinkController = require('./routes/addLink');
 const getLinkController = require('./routes/getLink');
 
-const port = process.env.PORT || 8080;
 const app = express();
-const httpServer = http.createServer(app);
+const options = {
+  key: fs.readFileSync('key.pem'),
+  cert: fs.readFileSync('cert.pem'),
+  ciphers: "DEFAULT:!SSLv2:!RC4:!EXPORT:!LOW:!MEDIUM:!SHA1"
+};
 
 const corsOptions = {
   origin: '*',
@@ -18,10 +23,10 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')));
 
 // View Engine Setup
-app.set('views', path.join(__dirname, 'views'))
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // Set up controllers
@@ -30,7 +35,9 @@ addLinkController(app);
 getLinkController(app);
 
 // Start the Server
-httpServer.listen(port, () => {
-  // eslint-disable-next-line no-console
-  console.info(`Server Started. Listening on *:${port}`);
+https.createServer(options, app).listen(443, () => {
+  console.info('https server active on port 443')
+});
+http.createServer(app).listen(80, () => {
+  console.info('http server active on port 80')
 });
