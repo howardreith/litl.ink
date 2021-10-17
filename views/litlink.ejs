@@ -30,7 +30,7 @@
     fetch(url, options).then((res) => res.json().then((res) => {
       const link = res.builtUrl
       document.getElementById("linkContainer").innerHTML =
-        `<div id="linkContainer"><a href="${link}" target=_blank>${link}</a></div>`;
+        `<div id="linkContainer"><a href="${link}" target=_blank>${link.replace('http://', '')}</a></div>`;
     }))
   });
 </script>
