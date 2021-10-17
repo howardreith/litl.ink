@@ -18,7 +18,7 @@
   $("#urlInputForm").submit(function (event) {
     event.preventDefault();
     const value = document.getElementById('urlInput').value
-    const url = window.location.href.includes('localhost') ? 'https://localhost:443/addLink' : 'https://reithlitlink.herokuapp.com/addLink'
+    const url = window.location.href.includes('localhost') ? 'http://localhost:8080/addLink' : 'https://reithlitlink.herokuapp.com/addLink'
     const options = {
       method: 'POST',
       headers: {

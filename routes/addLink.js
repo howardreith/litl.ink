@@ -5,7 +5,7 @@ module.exports = function addLink(app) {
     const { url } = req.body;
     const hash = await addLinkService(url);
     const environment = process.env.ENVIRONMENT;
-    let builtUrl = `https://localhost:443/${hash}`;
+    let builtUrl = `http://localhost:8080/${hash}`;
     if (environment === 'PRODUCTION') {
       builtUrl = `https://litl.ink/${hash}`
     }
