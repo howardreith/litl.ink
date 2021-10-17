@@ -15,10 +15,29 @@
         <div id="linkContainer"></div>
 
         <script>
-          $("#urlInputForm").submit(function (event) {
+
+          function isValidHttpUrl(string) {
+            let url;
+
+            try {
+              url = new URL(string);
+            } catch (_) {
+              return false;
+            }
+
+            return url.protocol === "http:" || url.protocol === "https:";
+          }
+
+          $("#urlInputForm").submit((event) => {
             event.preventDefault();
             const value = document.getElementById('urlInput').value
-            const url = window.location.href.includes('localhost') ? 'http://localhost:8080/addLink' : 'https://reithlitlink.herokuapp.com/addLink'
+            if (!isValidHttpUrl(value)) {
+              document.getElementById("linkContainer").innerHTML =
+                `<div id="linkContainer"><span>Invalid URL</span></div>`;
+              throw Error('Invalid URL')
+            }
+
+            const backendUrl = window.location.href.includes('localhost') ? 'http://localhost:8080/addLink' : 'https://reithlitlink.herokuapp.com/addLink'
             const options = {
               method: 'POST',
               headers: {
@@ -27,7 +46,7 @@
               },
               body: JSON.stringify({url: value})
             }
-            fetch(url, options).then((res) => res.json().then((res) => {
+            fetch(backendUrl, options).then((res) => res.json().then((res) => {
               const link = res.builtUrl
               document.getElementById("linkContainer").innerHTML =
                 `<div id="linkContainer"><a href="${link}" target=_blank>${link.replace('http://', '')}</a></div>`;
