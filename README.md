@@ -3,7 +3,7 @@
 Little Link is a 6-hour project inspired by bit.ly, tinyurl.com, and similar sites. It takes a long URL and returns
 a compact version that, when accessed, will redirect the user to the desired long URL originally input.
 
-The production website is available at [litl.ink](www.litl.ink).
+The production website is available at [https://www.litl.ink](https://www.litl.ink).
 
 ## Running Locally
 
